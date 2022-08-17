@@ -8,13 +8,7 @@ import options from "./swagger.js";
 import router from "./router/task.js";
 
 
-// DEBUG
-console.log(process.env.MONGODB_URL)
-
-mongoose.connect(
-  "mongodb+srv://admin:admin@cluster0.isda9.mongodb.net/tasks?retryWrites=true&w=majority",
-  () => console.log("Database connected!")
-);
+mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true }, () => console.log("Database connected!"));
 
 const specs = swaggerJsdoc(options);
 
